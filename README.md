@@ -1,98 +1,108 @@
-# Customer Segmentation & Sales reporting Dashboard (Task 05)
+# DeveloperHub Task 5 – Superstore Sales Analysis Dashboard using Streamlit
 
-##  Project Objective
-This project focuses on clustering customers into meaningful groups using **K-Means Clustering** based on behavioral and demographic data. The goal? Help businesses target the right customers, personalize strategies, and boost marketing ROI.
-
-Rather than treating all customers the same, we unlock insights from patterns in **Annual Income**, **Spending Score**, and more — and present the findings in an **interactive Streamlit dashboard**.
+##  Task Objective
+This task focuses on building a business intelligence dashboard to visualize sales and profit data from the **Global Superstore dataset**. The goal is to provide **interactive insights** into segment-wise, category-wise, and regional performance using an intuitive web interface built with **Streamlit**.
 
 
 ## 📁 Dataset
-**Name:** Mall Customer Segmentation Data  
-**Source:** [Kaggle – Mall Customer Segmentation Dataset](https://www.kaggle.com/vjchoudhary7/customer-segmentation-tutorial)
-
-| Feature          | Description                                                  |
-|------------------|--------------------------------------------------------------|
-| `CustomerID`     | Unique ID for each customer                                  |
-| `Gender`         | Male / Female                                                |
-| `Age`            | Age of the customer                                          |
-| `Annual Income`  | Income in thousands of dollars                               |
-| `Spending Score` | Score assigned by the mall based on spending behavior (1–100)|
-
----
-
-## 🛠 Tools & Libraries Used
-- **Pandas** – Data cleaning and EDA  
-- **Matplotlib & Seaborn** – Static visualizations  
-- **Scikit-learn** – K-Means clustering  
-- **Plotly** – Interactive charts  
-- **Streamlit** – Web-based interactive dashboard  
+- **Name:** Global Superstore Dataset  
+- **Source:** Kaggle / Tableau Public / Provided by Internship  
+- **Key Features:**
+  - Sales, Profit
+  - Category, Sub-Category
+  - Segment (Consumer, Corporate, Home Office)
+  - Region, Country, City
+  - Order Date, Ship Date, Discount, etc.
 
 
-##  Project Workflow
+## 🛠️ Tools & Libraries Used
 
-1. **Data Preprocessing**  
-   - Checked for nulls and correct data types  
-   - Transformed categorical features (e.g., `Gender` → numerical)  
-   - Scaled numerical features for clustering stability  
-
-2. **Exploratory Data Analysis (EDA)**  
-   - Distribution of Age, Annual Income, and Spending Score  
-   - Relationship between Income and Spending  
-   - Spending behavior segmented by Gender  
-
-3. **Clustering with K-Means**  
-   - Elbow Method to find optimal `k`  
-   - Silhouette Score analysis  
-   - **Final Model:** `k = 5` clusters selected based on combined metrics  
-
-4. **Visualization**  
-   - 2D & 3D clustering scatter plots  
-   - Color-coded cluster groups  
-   - Customer profiles labeled with business-friendly tags:  
-     - **Target Customers** (High spenders, moderate income)  
-     - **Careful Spenders** (Low spenders, high income)  
-     - **Potential Customers** (Mid-income, mid-score)  
-
-## Streamlit Dashboard Features
-
-| Feature                       | Description                                                        |
-|------------------------------|--------------------------------------------------------------------|
-| **Cluster Summary**          | Pie chart + bar chart of cluster distribution                      |
-| **2D & 3D Scatter Plots**    | Visualizes clusters across income and spending dimensions          |
-| **Customer Profile Insights**| Displays customer segments using business-friendly labels          |
-| **Interactive Filters**      | Slice data based on gender, age range, and cluster assignments     |
-| **Tooltips & Color Legends** | Easy interpretation of data points                                 |
-| **Download Buttons**         | Export filtered data as CSV                                        |
-| **Animated KPIs**            | Highlight cluster counts with animated counters (via `streamlit_extras`) |
-
-
-## ✅ Results & Insights
-- **5 distinct clusters** were identified, each with unique spending behaviors.  
-- Businesses can now easily target:  
-  -  **High-value Customers** to prioritize for promotions  
-  -  **Cost-sensitive Customers** to retain with value-based offers  
-  -  **Low-engagement Customers** to exclude from expensive ad spend  
-
-
-##  Lessons Learned
-- **Imbalanced cluster sizes** were mitigated by adjusting feature scaling.  
-- **3D Plotly** rendering in Streamlit required converting `.ipynb` to `.py`.  
-- **Layout issues** in Streamlit fixed by using `st.columns()` instead of excessive sidebar elements.  
-- **Semantic cluster labels** improved stakeholder understanding and buy-in.  
-
-
-## Conclusion
-This project demonstrates the power of **unsupervised learning** to guide marketing decisions through:  
-- ✅ **Visual storytelling**  
-- ✅ **Segmentation based on real patterns**  
-- ✅ **Interactive dashboards** for decision-makers  
-
-## 🔗 Useful Resources
-- [Scikit-learn KMeans Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)  
-- [Streamlit Documentation](https://docs.streamlit.io/)  
-- [Plotly for Python](https://plotly.com/python/)  
-- [Mall Customer Segmentation Dataset (Kaggle)](https://www.kaggle.com/vjchoudhary7/customer-segmentation-tutorial)  
+| Tool / Library           | Purpose                                  |
+|--------------------------|------------------------------------------|
+| `streamlit`              | Interactive dashboard framework          |
+| `pandas`                 | Data manipulation and cleaning           |
+| `plotly`                 | Interactive charts and visuals           |
+| `matplotlib`, `seaborn`  | Static data exploration                  |
+| `streamlit-option-menu` | Sidebar navigation                       |
+| `streamlit-lottie`       | Animated illustrations and UI enhancement|
 
 ---
 
-> 🔖 *Part of a business-focused ML portfolio showcasing real-world applications in customer analytics and segmentation at DevelopersHub Corporation.*  
+## Approach
+
+### 1. Data Loading & Cleaning
+- Removed null/duplicate entries  
+- Fixed date parsing for `Order Date` and `Ship Date`  
+- Derived new features: `Year`, `Month`, `Weekday`  
+- Ensured proper data types for analysis  
+
+### 2. Exploratory Data Analysis (EDA)
+- Identified top-performing segments, categories, and regions  
+- Explored `Profit` vs `Discount` trends  
+- Uncovered seasonality and purchase behavior over time  
+- Created summary tables (e.g., top profitable cities)  
+
+### 3. Dashboard Design with Streamlit
+- **Sidebar Menu** with pages:
+  - Overview
+  - Sales by Category
+  - Profit Analysis
+  - Segment Trends
+- **Interactive Filters**:
+  - Date Range
+  - Region / Segment / Category
+- **Visual Components**:
+  - Sales/Profit over time (`line plots`)
+  - Region-wise map view (`choropleth`)
+  - Category/Sub-category bar charts
+  - Segment-based pie charts
+  - KPIs (Total Sales, Profit, Orders)
+
+---
+
+## 🖥️ Dashboard Features
+
+Live Dashboard:[https://sales-forecast-dashboard.streamlit.app/]
+
+✅ Filter by Region, Category, Segment, and Date  
+✅ Hover-enabled tooltips with accurate metrics  
+✅ Responsive layout for desktop view  
+✅ Animated intro using Lottie JSON  
+✅ Downloadable filtered dataset in CSV  
+
+
+## Key Insights
+
+- **Technology** and **Office Supplies** were the most profitable categories  
+- **Western Region** leads in both sales and profits  
+- **High Discounts** often result in **negative profits**  
+- **Corporate Segment** had the highest average order value  
+- **Sales peak in November–December**, indicating holiday season surges  
+
+
+## ✅ Conclusion
+
+This task demonstrates the full pipeline from data to insight:
+
+-  **Data Preprocessing**  
+-  **Exploratory Data Analysis (EDA)**  
+-  **Visual Insight Generation**  
+-  **Streamlit Dashboard Deployment**
+
+This dashboard empowers business users to discover insights, optimize operations, and make data-driven decisions with ease.
+
+
+
+## 🔗 Useful Links
+
+- [Streamlit Docs](https://docs.streamlit.io/)
+- [Plotly Express Docs](https://plotly.com/python/plotly-express/)
+- [Pandas Docs](https://pandas.pydata.org/docs/)
+- [Seaborn Docs](https://seaborn.pydata.org/)
+
+---
+
+##  Author
+
+**Name:** Sara Arif  
+**Submitted as part of:** *DeveloperHub Internship Program*
