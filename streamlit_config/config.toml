@@ -1,0 +1,7 @@
+[theme]
+primaryColor = "#FF6B6B"         # Watermelon Red
+backgroundColor = "#FFFBEA"      # Banana Cream
+secondaryBackgroundColor = "#FFDAC1"  # Peach
+textColor = "#1E1E1E"            # Dark Text
+font = "sans serif"
+base = "light"
