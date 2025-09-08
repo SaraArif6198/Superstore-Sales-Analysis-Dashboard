@@ -89,6 +89,28 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# --- Author Section ---
+st.markdown("""
+    <div style="background: linear-gradient(90deg, #ffb88c, #f9f871);
+                padding: 1.2rem;
+                border-radius: 1rem;
+                text-align: center;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        <h2 style="margin-bottom: 0.3rem; color: #1E1E1E;">👩‍💻 About the Author</h2>
+        <p style="margin: 0; font-size: 16px; color: #333;">
+            Hi, I'm <strong>Sara Arif</strong> — a passionate Data Enthusiast 🚀.<br>
+            Skilled in <em>SQL, Power BI, Python, and AI</em>, I love turning raw data into 
+            meaningful insights and interactive dashboards.  
+        </p>
+        <p style="margin-top: 0.5rem;">
+            🌐 <a href="https://github.com/SaraArif6198" target="_blank" style="color:#FF4B4B; text-decoration: none;">GitHub</a> |
+            💼 <a href="https://www.linkedin.com/in/sara-arif-7922642b8/" target="_blank" style="color:#0077b5; text-decoration: none;">LinkedIn</a>
+        </p>
+    </div>
+""", unsafe_allow_html=True)
+
+
 # --- Load Data ---
 @st.cache_data
 def load_data():
