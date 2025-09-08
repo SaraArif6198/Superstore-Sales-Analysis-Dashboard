@@ -124,7 +124,7 @@ with st.sidebar:
         default_index=0,
     )
 
-     with st.sidebar.expander("👩‍💻 About Author", expanded=False):
+with st.sidebar.expander("👩‍💻 About Author", expanded=False):
     st.markdown("""
         <div style="
             background: linear-gradient(90deg, #ffb88c, #f9f871);
@@ -488,6 +488,3 @@ st.markdown("""
         <a href="https://github.com/SaraArif6198" target="_blank" style="text-decoration: none; color: #FF4B4B;"><strong>Sara Arif</strong></a>
     </div>
 """, unsafe_allow_html=True)
-
-
-
